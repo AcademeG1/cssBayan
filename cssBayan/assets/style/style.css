@@ -24,6 +24,11 @@ hr {
     justify-content: space-between;
 }
 
+.input__img {
+    width: 1em;
+    height: 100%;
+}
+
 .accordion__title {
     margin-top: 1.2rem;
     margin-bottom: 0.1rem;
@@ -44,15 +49,33 @@ hr {
     width: 100%;
 }
 
+.item__description {
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
 .liststs__item {
     border: 2px solid #000000;
+    transition: all 0.5s;
 }
 
-.accordion__lists:hover .liststs__item > label {
-    color: red;
+/* ' ' A B - выбирает все элементы c классом B, которые находятся внутри класса A */
+/* + A + B - выбирает элемент B, который находтся сразу после элемента A */
+/* ~ A ~ B - выбирает все элементы B, которые находится внутри элемента A, внутри одного родителя */
+/* ~ ul > li - выбирает только дочерние элементы li, которые находится внутри элемента ul, на первом уровне вложенности к элементу ul */
+
+.accordion__lists:hover .liststs__item > input + label { /* работает при ховере на поле с элементами */
+    color: #077400;
+    transition: all 0.3s;
 }
 
-.accordion__lists label{
+.accordion__lists:hover .input__img {
+    background: url('../icon/plus-solid.svg') no-repeat;
+}
+
+input + label {
     padding: 0.3rem 2rem;
     display: block;
     height: 2rem;
@@ -66,16 +89,8 @@ hr {
     background: rgba(255, 255, 255, 0.5);
 }
 
-.item__description {
-    display: flex;
-    justify-content: center;
-}
-
-/* ' ' A B - выбирает все элементы c классом B, которые находятся внутри класса A */
-/* + A + B - выбирает элемент B, который находтся сразу после элемента A */
-/* ~ A ~ B - выбирает все элементы B, которые находится внутри элемента A, внутри одного родителя */
-.accordion__lists input:checked + label,
-.accordion__lists input:checked + label:hover{ /* когда фиксируется */
+.accordion__lists input:checked > label > .item__description,
+.accordion__lists input:checked > label:hover{ /* когда фиксируется */
     background: rgba(255, 255, 255, 0.5);
     color: #009108;
 }
@@ -84,8 +99,11 @@ hr {
     display: none;
 }
 
+.accordion__lists input:checked + label > .input__img {
+    background: url('../icon/minus-solid.svg') no-repeat;
+}
+
 .accordion__lists .item__description{
-    background: rgba(255, 255, 255, 0.5);
     margin-top: -1px;
     overflow: hidden;
     height: 0px;
@@ -96,4 +114,8 @@ hr {
 
 .accordion__lists input:hover ~ .item__description {
     height: 500px;
+}
+
+.accordion__lists input:hover + label > .input__img {
+    background: url('../icon/minus-solid.svg') no-repeat;
 }
