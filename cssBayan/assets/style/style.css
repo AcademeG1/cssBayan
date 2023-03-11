@@ -11,6 +11,11 @@ hr {
     background: black;
 }
 
+img {
+    max-width: 30%;
+    height: 98%;
+}
+
 .main {
     font-family: 'Tilt Neon', cursive;
     font-size: 1.5rem;
@@ -43,7 +48,7 @@ hr {
 .accordion__lists {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 1em;
     list-style: none;
     padding-left: 0;
     width: 100%;
@@ -72,7 +77,7 @@ hr {
 }
 
 .accordion__lists:hover .input__img {
-    background: url('../icon/plus-solid.svg') no-repeat;
+    background: url('../icon/plus-solid.svg') no-repeat center;
 }
 
 input + label {
@@ -83,6 +88,7 @@ input + label {
     color: #000000;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .liststs__item:hover {
@@ -100,7 +106,7 @@ input + label {
 }
 
 .accordion__lists input:checked + label > .input__img {
-    background: url('../icon/minus-solid.svg') no-repeat;
+    background: url('../icon/minus-solid.svg') no-repeat center;
 }
 
 .accordion__lists .item__description{
@@ -109,13 +115,61 @@ input + label {
     height: 0px;
 }
 .accordion__lists input:checked ~ .item__description {
-    height: 500px;
+    height: 55vh;
 }
 
 .accordion__lists input:hover ~ .item__description {
-    height: 500px;
+    height: 55vh;
 }
 
 .accordion__lists input:hover + label > .input__img {
-    background: url('../icon/minus-solid.svg') no-repeat;
+    background: url('../icon/minus-solid.svg') no-repeat center;
+}
+
+@media screen and (max-width: 1100px) {
+    img {
+        max-width: 45%;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    img {
+        max-width: 70%;
+    }
+    label {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    h1 {
+        font-size: 25px;
+    }
+    img {
+        max-width: 100%;
+    }
+    label {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 450px) {
+    img {
+        height: 90%;
+    }
+    .item__description {
+        display: flex;
+        align-items: center;
+    }
+    .accordion__lists input:checked ~ .item__description {
+        height: 45vh;
+    }
+    
+    .accordion__lists input:hover ~ .item__description {
+        height: 45vh;
+    }
+}
+
+@media (max-width: 320) {
+    
 }
