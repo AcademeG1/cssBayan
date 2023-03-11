@@ -13,7 +13,7 @@ hr {
 
 img {
     max-width: 30%;
-    height: 98%;
+    height: 95%;
 }
 
 .main {
@@ -63,6 +63,7 @@ img {
 
 .liststs__item {
     border: 2px solid #000000;
+    transform: translateZ(0);
     transition: all 0.5s;
 }
 
@@ -74,6 +75,7 @@ img {
 .accordion__lists:hover .liststs__item > input + label { /* работает при ховере на поле с элементами */
     color: #077400;
     transition: all 0.3s;
+    transform: translateZ(0);
 }
 
 .accordion__lists:hover .input__img {
@@ -115,11 +117,11 @@ input + label {
     height: 0px;
 }
 .accordion__lists input:checked ~ .item__description {
-    height: 55vh;
+    height: 45vh;
 }
 
 .accordion__lists input:hover ~ .item__description {
-    height: 55vh;
+    height: 45vh;
 }
 
 .accordion__lists input:hover + label > .input__img {
@@ -151,6 +153,10 @@ input + label {
     label {
         font-size: 15px;
     }
+    input:checked + label {
+        padding: 0.8rem 2rem;
+        padding-bottom: 0;
+    }
 }
 
 @media (max-width: 450px) {
@@ -162,14 +168,20 @@ input + label {
         align-items: center;
     }
     .accordion__lists input:checked ~ .item__description {
-        height: 45vh;
+        height: 32vh;
     }
     
     .accordion__lists input:hover ~ .item__description {
-        height: 45vh;
+        height: 32vh;
+    }
+    .input__img {
+        margin-left: 25px;
+    }
+    label {
+        text-align: center;
     }
 }
 
-@media (max-width: 320) {
+/* @media (max-width: 320) {
     
-}
+} */
