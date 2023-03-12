@@ -4,6 +4,10 @@ body {
     background-color: bisque;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 hr {
     width: 90%;
     border: none;
@@ -67,6 +71,10 @@ img {
     transition: all 0.5s;
 }
 
+label:active, .liststs__item:active {
+    opacity: 0.8;
+}
+
 /* ' ' A B - выбирает все элементы c классом B, которые находятся внутри класса A */
 /* + A + B - выбирает элемент B, который находтся сразу после элемента A */
 /* ~ A ~ B - выбирает все элементы B, которые находится внутри элемента A, внутри одного родителя */
@@ -107,7 +115,7 @@ input + label {
     display: none;
 }
 
-.accordion__lists input:checked + label > .input__img {
+.accordion__lists:hover input:checked + label > .input__img {
     background: url('../icon/minus-solid.svg') no-repeat center;
 }
 
@@ -157,6 +165,21 @@ input + label {
         padding: 0.8rem 2rem;
         padding-bottom: 0;
     }
+    
+    .accordion__lists input:active ~ .item__description {
+        height: 45vh;
+    }
+    
+    .accordion__lists input:active + label > .input__img {
+        background: url('../icon/minus-solid.svg') no-repeat center;
+    }
+
+    .accordion__lists:active .liststs__item > input + label { /* работает при ховере на поле с элементами */
+        color: #077400;
+        transition: all 0.3s;
+        transform: translateZ(0);
+    }
+
 }
 
 @media (max-width: 450px) {
