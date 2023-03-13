@@ -4,10 +4,6 @@ body {
     background-color: bisque;
 }
 
-body::-webkit-scrollbar {
-    display: none;
-}
-
 hr {
     width: 90%;
     border: none;
@@ -204,7 +200,3 @@ input + label {
         text-align: center;
     }
 }
-
-/* @media (max-width: 320) {
-    
-} */
