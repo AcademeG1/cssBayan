@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+body {
+    background-color: bisque;
+}
+
+hr {
+    width: 90%;
+    border: none;
+    height: 0.1em;
+    background: black;
+}
+
+img {
+    max-width: 30%;
+    height: 95%;
+}
+
+.main {
+    font-family: 'Tilt Neon', cursive;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mem-one-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input__img {
+    width: 1em;
+    height: 100%;
+}
+
+.accordion__title {
+    margin-top: 1.2rem;
+    margin-bottom: 0.1rem;
+}
+
+.accordion__container {
+    width: 70%;
+    display: flex;
+    justify-content: left;
+}
+
+.accordion__lists {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+}
+
+.item__description {
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.liststs__item {
+    border: 2px solid #000000;
+    transform: translateZ(0);
+    transition: all 0.5s;
+}
+
+label:active, .liststs__item:active {
+    opacity: 0.8;
+}
+
+/* ' ' A B - выбирает все элементы c классом B, которые находятся внутри класса A */
+/* + A + B - выбирает элемент B, который находтся сразу после элемента A */
+/* ~ A ~ B - выбирает все элементы B, которые находится внутри элемента A, внутри одного родителя */
+/* ~ ul > li - выбирает только дочерние элементы li, которые находится внутри элемента ul, на первом уровне вложенности к элементу ul */
+
+.accordion__lists:hover .liststs__item > input + label { /* работает при ховере на поле с элементами */
+    color: #077400;
+    transition: all 0.3s;
+    transform: translateZ(0);
+}
+
+.accordion__lists:hover .input__img {
+    background: url('../icon/plus-solid.svg') no-repeat center;
+}
+
+input + label {
+    padding: 0.3rem 2rem;
+    display: block;
+    height: 2rem;
+    cursor: pointer;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.liststs__item:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.accordion__lists input:checked > label > .item__description,
+.accordion__lists input:checked > label:hover{ /* когда фиксируется */
+    background: rgba(255, 255, 255, 0.5);
+    color: #009108;
+}
+
+.accordion__lists input{ /* прячем radio */
+    display: none;
+}
+
+.accordion__lists:hover input:checked + label > .input__img {
+    background: url('../icon/minus-solid.svg') no-repeat center;
+}
+
+.accordion__lists .item__description{
+    margin-top: -1px;
+    overflow: hidden;
+    height: 0px;
+}
+.accordion__lists input:checked ~ .item__description {
+    height: 45vh;
+}
+
+.accordion__lists input:hover ~ .item__description {
+    height: 45vh;
+}
+
+.accordion__lists input:hover + label > .input__img {
+    background: url('../icon/minus-solid.svg') no-repeat center;
+}
+
+@media screen and (max-width: 1100px) {
+    img {
+        max-width: 45%;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    img {
+        max-width: 70%;
+    }
+    label {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    h1 {
+        font-size: 25px;
+    }
+    img {
+        max-width: 100%;
+    }
+    label {
+        font-size: 15px;
+    }
+    input:checked + label {
+        padding: 0.8rem 2rem;
+        padding-bottom: 0;
+    }
+    
+    .accordion__lists input:hover ~ .item__description {
+    }
+    
+    .accordion__lists input:active + label > .input__img {
+        background: url('../icon/minus-solid.svg') no-repeat center;
+    }
+
+    .accordion__lists:active .liststs__item > input + label { /* работает при ховере на поле с элементами */
+        color: #077400;
+        transition: all 0.3s;
+        transform: translateZ(0);
+    }
+
+}
+
+@media (max-width: 450px) {
+    img {
+        height: 90%;
+    }
+    .item__description {
+        display: flex;
+        align-items: center;
+    }
+    .accordion__lists input:checked ~ .item__description {
+        height: 32vh;
+    }
+    
+    .accordion__lists input:hover ~ .item__description {
+    }
+    .input__img {
+        margin-left: 25px;
+    }
+    label {
+        text-align: center;
+    }
+}
