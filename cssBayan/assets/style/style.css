@@ -190,7 +190,6 @@ input + label {
     }
     
     .accordion__lists input:hover ~ .item__description {
-        height: 32vh;
     }
     .input__img {
         margin-left: 25px;
