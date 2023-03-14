@@ -162,8 +162,7 @@ input + label {
         padding-bottom: 0;
     }
     
-    .accordion__lists input:active ~ .item__description {
-        height: 45vh;
+    .accordion__lists input:hover ~ .item__description {
     }
     
     .accordion__lists input:active + label > .input__img {
